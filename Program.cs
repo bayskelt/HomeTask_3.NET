@@ -1,26 +1,29 @@
-﻿namespace HomeTask_3.NET
+﻿using System;
+namespace HomeTask_3.NET
 {
     internal class Program
     {
         static void Main()
         {
-            Console.Write("Введiть цiле число A: ");
-            int A = int.Parse(Console.ReadLine());
-            Console.Write("Введiть цiле число B (воно має бути меншим, нiж A): ");
-            int B = int.Parse(Console.ReadLine());
+            int A, B;
 
-            if (A > B)
+            do
             {
-                do
+                Console.Write("Введiть цiле число A: ");
+                A = int.Parse(Console.ReadLine());
+                Console.Write("Введiть цiле число B (воно має бути меншим за перше): ");
+                B = int.Parse(Console.ReadLine());
+
+                if (A <= B)
                 {
-                    Console.WriteLine(A);
-                    A--;
+                    Console.WriteLine("Ви ввели неправильнi вхiднi данi! (число A менше за B)\n\n");
                 }
-                while (A >= B);
             }
-            else 
+            while (A <= B);
+
+            for (int i = A; i >= B; i--)
             {
-                Console.Write("\nВи ввели неправильнi вхiднi данi! (число A менше за B)");
+                Console.WriteLine(i);
             }
         }
     }
